@@ -37,7 +37,7 @@
 		<icon src="assets/iconos/hdpi.png" gap:platform="android" gap:density="hdpi" />
 		<icon src="assets/iconos/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
 
-    <name>Turnos Farmacéutico</name>
+    <name>Prueba BD</name>
 
     <description>
         Puertos de Altagracia
