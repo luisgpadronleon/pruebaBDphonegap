@@ -1,0 +1,33 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.3
+-- http://www.phpmyadmin.net
+-- 
+-- Servidor: localhost
+-- Tiempo de generación: 19-03-2015 a las 15:43:39
+-- Versión del servidor: 5.0.51
+-- Versión de PHP: 5.2.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Base de datos: `phonegap`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `cliente`
+-- 
+
+CREATE TABLE `cliente` (
+  `id_clientes` int(11) NOT NULL auto_increment,
+  `nombre` varchar(255) default NULL,
+  `mail` varchar(255) default NULL,
+  `telefono` int(11) default NULL,
+  PRIMARY KEY  (`id_clientes`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 
+-- Volcar la base de datos para la tabla `cliente`
+-- 
+
