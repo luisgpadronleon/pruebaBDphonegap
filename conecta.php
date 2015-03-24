@@ -3,7 +3,7 @@
 //Conexión a base de datos
 $server = "localhost";
 $username = "root";
-$password = "ifNa67i8C4";
+$password = "Sofia1340";
 $database = "puertola_phonegap";
 $con = mysql_connect($server, $username, $password) or die ("Error al conectar: " . mysql_error());
 mysql_select_db($database, $con);
@@ -26,4 +26,7 @@ if (!mysql_query($sql, $con)) {
  echo "Datos guardados";
 }
 mysql_close($con);
+?>
+<?php
+echo "Esto es solo un ejemplo de un texto con echo desde PHP";
 ?>

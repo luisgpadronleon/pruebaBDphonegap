@@ -37,6 +37,18 @@ $("#nombre").val(" ");
             }
 
         });
+		</script>
+		
+		<script>
+		function justNumbers(e)
+{
+var keynum = window.event ? window.event.keyCode : e.which;
+if ((keynum == 8) || (keynum == 46))
+return true;
+ 
+return /\d/.test(String.fromCharCode(keynum));
+}
+		
     </script>
 
 </head> 
@@ -60,7 +72,7 @@ $("#nombre").val(" ");
                   
              <div data-role="fieldcontain" style="padding:20px;">
           <label for="telefono">Tel:</label>
-          <input type="text" name="telefono" id="telefono" value=""  />
+          <input type="text" name="telefono" id="telefono" value=""  onkeypress="return justNumbers(event);"/>
    </div>
   
 
