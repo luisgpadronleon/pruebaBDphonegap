@@ -8,45 +8,54 @@
 <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 
 <script>
-        $(function() {
+    $(function() {
+        $("#enviadatos").click(function() {
+            var elNombre = $("#nombre").val();
+            var elMail = $("#mail").val();
+            var elTeefono = $("#telefono").val();
+            $("#nombre").val(" ");
+            $("#mail").val(" ");
+            $("#telefono").val(" ");
 
-            $("#enviadatos").click(function() {
-                var elNombre = $("#nombre").val();
-    var elMail = $("#mail").val();
-    var elTelefono = $("#telefono").val();
-$("#nombre").val(" ");
-    $("#mail").val(" ");
-    $("#telefono").val(" ");
+            $.ajax({
+                type: "POST",
+                url: "backend/clientes_agregar.php",
+                data: ({name: elNombre, mail: elMail, telefono: elTelefono }),
+                cache: false,
+                dataType: "text",
+                success: onSuccess
+            });
                 
-                    $.ajax({
-                      type: "POST",
-                      url: "http://www.puertolab.com/conecta.php",
-                      data: ({name: elNombre, mail: elMail, telefono: elTelefono }),
-                      cache: false,
-                      dataType: "text",
-                      success: onSuccess
-                    });
-                
+        });
+        function onSuccess(data){
+            alert(data);
+        }
+        function onShow(data){
+            for(j=0;j<data.length;j++){
+                alert("Nombre: "+data[j].nombre + " Mail: "+data[j].mail+ " telefono: "+data[j].telefono);
+            }
+        }
+        $("#consultadatos").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "backend/clientes_consulta.php",
+                cache: false,
+                dataType: "json",
+                success: onShow
             });
 
-        
-            function onSuccess(data)
-            {
-            
-        alert(data);
-            }
-
         });
-		</script>
+
+        
+    });
+</script>
 		
-		<script>
-		function justNumbers(e)
-{
-var keynum = window.event ? window.event.keyCode : e.which;
-if ((keynum == 8) || (keynum == 46))
-return true;
- 
-return /\d/.test(String.fromCharCode(keynum));
+<script>
+    function justNumbers(e){
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+            return true;
+        return /\d/.test(String.fromCharCode(keynum));
 }
 		
     </script>
@@ -78,7 +87,7 @@ return /\d/.test(String.fromCharCode(keynum));
 
   <div class="ui-body ui-body-b">
   <fieldset class="ui-grid-a">
-    <div class="ui-block-a"><button type="submit" data-theme="d">Cancelar</button></div>
+    <div class="ui-block-a"><button type="button" data-theme="d" id="consultadatos">Cancelar</button></div>
     <div class="ui-block-b"><button type="button" data-theme="a" id="enviadatos">Enviar</button>
             
                        
