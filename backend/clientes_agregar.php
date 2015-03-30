@@ -17,4 +17,4 @@ if (!mysql_query($sql, $con)) {
     echo "Datos guardados";
 }
 mysql_close($con);
-
+?>

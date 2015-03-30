@@ -23,4 +23,4 @@ if (!res) {
 }
 echo json_encode($datos);
 mysql_close($con);
-
+?>

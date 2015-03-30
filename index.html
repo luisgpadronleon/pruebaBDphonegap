@@ -11,20 +11,21 @@
     $(document).ready(function() {
  
             // Un mensaje de estado
-            $("#resultBlock").html("Obteniendo los datos - por favor espere...");
+            $("#resultBlock").html("Obteniendo los datos - esperando...");
             // Hacemos un peticion web y obtenemos la data
+            
             $.ajax({
                 type: "POST",
                 url: "http://www.puertolab.com/backend/clientes_consulta.php",
                 cache: false,
-                dataType: "json",
+                dataType: "jsonp",
                 success: onShow
             });
                 
         function onShow(data){
             var cadena = "";
             for(j=0;j<data.length;j++){
-                cadena += "<strong>Nombre: </strong> "+data[j].nombre + "</br><strong>Mail: </strong> "+data[j].mail+ "</br><strong>telefono: </strong>"+data[j].telefono+"</br></br>";
+                cadena += "Nombre: "+data[j].nombre + " Mail: "+data[j].mail+ " telefono: "+data[j].telefono+"</br>";
             }
             $("#resultBlock").html(cadena);
         }
@@ -37,16 +38,11 @@
     <div data-role="header">
         <h1>Demo Datos remotos</h1>
     </div>
-<div>
-    
-<div style="margin-left:10px;">
-    <h3><a href="agregar.html">Ingresar Datos</a></h3>
-</div>
-
     <div data-role="content">
         <!-- Haciendo clic sobre el enlace se mostrara la data en la capa de abajo -->
         <a id="testLink" rel="external">Obtener la data</a>
         <div >
+        <h3><a href="agregar.html">Agregar</a></h3>
             <h3>Resultado: </h3>
             <p id="resultBlock"></p>
         </div>
