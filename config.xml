@@ -24,9 +24,6 @@
 			<gap:splash src="assets/splash/ios/Hi-Rez-Portrait.png" width="1536" height="2008" />
 			<gap:splash src="assets/splash/ios/Hi-Rez-Landscape.png" width="2048" height="1496" />
 
-			
-
-
 		
 		
 		<preference name="splash-screen-duration" value="1"/>
@@ -43,7 +40,7 @@
         Puertos de Altagracia
     </description>
 
-    <author href="http://puertolab.com" email="contacto@puertolab.com">
+    <author href="http://www.puertolab.com" email="contacto@puertolab.com">
         puertoLab
     </author>
 </widget>

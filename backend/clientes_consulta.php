@@ -21,6 +21,10 @@ if (!res) {
     }
     
 }
-echo json_encode($datos);
+if(isset($_GET['callback'])){ // Si es una petición cross-domain
+    echo $_GET['callback'].'('.json_encode($datos).')';
+}
+else // Si es una normal, respondemos de forma normal
+    echo json_encode($datos);
 mysql_close($con);
-?>
+
